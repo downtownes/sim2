@@ -1,0 +1,81 @@
+.firstView {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stepIconDiv {
+    width: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.lightCircle {
+    display: flex;
+    justify-content: center;
+    background-color: #AFD4C0;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+}
+
+.checkCircle {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B5249;
+    border-radius: 100%;
+    color: white;
+    font-size: 18px;
+}
+
+.checkCircle1 {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #3B5249;
+    border-radius: 100%;
+    color: white;
+    font-size: 18px;
+}
+
+.inputAndTitleDiv {
+    width: 60%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: initial;
+}
+
+.propertyNameInput {
+    height: 25px;
+    border: 1px solid #519872;
+    border-radius: 2px;
+}
+
+.propertyDescInput {
+    height: 100px;
+    border: 1px solid #519872;
+    border-radius: 2px;
+}
+
+.propertyNameTitle,
+.propertyDescTitle {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.nextStepStepOne {
+    width: 160px;
+    height: 50px;
+    border: none;
+    border-radius: 4px;
+    background-color: #3B5249;
+    color: white;
+}

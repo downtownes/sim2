@@ -1,0 +1,73 @@
+.register {
+    display: flex;
+    justify-content: center;
+    background-color: #AFD4C0;
+}
+
+.centerDivRegister {
+    width: 46em;
+    height: 100vh;
+    background: linear-gradient(to bottom, #e2f3ea, #ffffff);
+}
+
+.addNewPropertyDiv {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.addNewPropertyButton {
+    width: 200px;
+    height: 50px;
+    border: none;
+    background-color: #8AEA92;
+}
+
+.filterDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dashboardPrice {
+    width: 80px;
+    height: 40px;
+    border: 1px solid #519872;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+
+.dashboardFilterButton {
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: #8AEA92;
+    margin-left: 20px;
+}
+
+.dashboardResetButton {
+    width: 80px;
+    height: 40px;
+    border: none;
+    background-color: #3B5249;
+    margin-left: 10px;
+    color: white;
+}
+
+.dividerLine {
+    width: 95%;
+    height: 10px;
+	border: 0;
+	box-shadow: 0 10px 10px -10px #8c8b8b inset;
+}
+
+.listingsDiv {
+
+}
+
+.homeListingsTitle {
+    margin-left: 50px;
+}
