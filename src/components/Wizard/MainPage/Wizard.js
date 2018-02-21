@@ -3,11 +3,8 @@ import NavBar from '../../NavBar/NavBar';
 import './Wizard.css';
 
 
-export default class Wizard extends Component {
-    constructor(props) {
-        super(props);
-    }
-    render() {
+export default function Wizard (props) {
+
         return (
             <div className="wizard">
                 <NavBar />
@@ -18,13 +15,13 @@ export default class Wizard extends Component {
                             <button className="cancelListing">Cancel</button>
                         </div>
 
-                            {this.props.children}
+                            {props.children}
 
                     </div>
                 </div>
             </div>
         )
     }
-}
+
 
 

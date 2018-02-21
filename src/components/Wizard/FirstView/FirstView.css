@@ -24,7 +24,7 @@
 .checkCircle {
     width: 30px;
     height: 30px;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     background-color: #3B5249;
