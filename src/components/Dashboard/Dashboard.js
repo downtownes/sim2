@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../NavBar/NavBar';
-import './Register.css';
+import './Dashboard.css';
 
 
 
-export default class Register extends Component {
+export default class Dashboard extends Component {
     render() {
         return (
             <div className="registerComponent">

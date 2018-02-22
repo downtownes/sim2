@@ -1,6 +1,61 @@
-.mainInfoContainer {
+/* .mainInfoContainer {
     width: 60%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+} */
+
+.secondViewMidContainer {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.cityStateDiv {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.stateDiv {
+    margin-right: 20%;
+}
+
+.city,
+.state,
+.address,
+.zipCode {
+    margin-bottom: 5px;
+    margin-left: 20px;
+}
+
+.locationInput {
+    width: 160px;
+    height: 25px;
+    border-radius: 2px;
+    border: 1px solid #519872;
+}
+
+.locationInputAddress {
+    width: 100%;
+    height: 25px;
+    border-radius: 2px;
+    border: 1px solid #519872;
+}
+
+.backAndForthButtons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.stepButtons {
+    width: 200px;
+    height: 50px;
+    background-color: #3B5249;
+    border: none;
+    border-radius: 2px;
+    color: white;
 }

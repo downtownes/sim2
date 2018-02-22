@@ -1,0 +1,12 @@
+.recommendRentDiv {
+    display: flex;
+    justify-content: center;
+}
+
+.completeButton {
+    width: 160px;
+    height: 50px;
+    border: none;
+    border-radius: 2px;
+    background-color: #8AEA92;
+}
