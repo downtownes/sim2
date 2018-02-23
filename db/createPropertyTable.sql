@@ -1,5 +1,6 @@
 CREATE TABLE property
-(propId SERIAL PRIMARY KEY,
+(id SERIAL PRIMARY KEY,
+propId INTEGER,
 name VARCHAR(60),
 description VARCHAR(360),
 address VARCHAR(120),
