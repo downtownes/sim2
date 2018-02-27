@@ -5,7 +5,42 @@ import './Login.css';
 
 
 export default class Login extends Component {
+    constructor(){
+        super();
+        this.state = {
+            usernameInput: '',
+            passwordInput: '',
+            identification: ''
+        }
+        this.userChange = this.userChange.bind(this);
+        this.passChange = this.passChange.bind(this);
+    }
+
+    componentDidMount() {
+        axios.get('/api/getid').then(res => {
+            this.setState({
+                identification: res.data
+            })
+        })
+    }
+
+
+    userChange(username){
+        this.setState({
+            usernameInput: username
+        })
+    }
+
+    passChange(password){
+        this.setState({
+            passwordInput: password
+        })
+    }
+
+
+
     render() {
+        console.log(this.state.identification);
         return (
             <div className="login">
                 <div className="centerDiv">
@@ -15,13 +50,13 @@ export default class Login extends Component {
 
                     <div className="inputDiv">
                         <h4 className="inputTitle">Username</h4>
-                        <input className="topInput" />
+                        <input className="topInput" onChange={ e => this.userChange(e.target.value)}/>
                         <h4 className="inputTitle">Password</h4>
-                        <input className="bottomInput" />
+                        <input className="bottomInput" onChange={ e => this.passChange(e.target.value)}/>
                     </div>
                     <div className="buttonDiv">
                         <button className="loginButton">Login</button>
-                        <Link to="/register" className="registerButton"><button className="registerButton">Register</button></Link>
+                        <Link to="/dashboard" className="registerButton"><button className="registerButton">Register</button></Link>
                     </div>
                 </div>
             </div>
