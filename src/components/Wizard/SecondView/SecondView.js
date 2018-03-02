@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateAddress, updateCity, updateState, updateZip } from '../../../ducks/reducer';
 import './SecondView.css';
 
-export default class SecondView extends Component {
+class SecondView extends Component {
     constructor() {
         super();
         this.state = {
@@ -10,6 +12,7 @@ export default class SecondView extends Component {
         }
     }
     render() {
+        const { updateAddress, updateCity, updateState, updateZip } = this.props;
         let styles = { display: this.state.showStep === true ? 'none' : 'flex' }
         return (
             <div className="firstView">
@@ -25,21 +28,21 @@ export default class SecondView extends Component {
                 <div className="secondViewMidContainer">
                     <div className="addressDiv">
                         <h4 className="address">Address</h4>
-                        <input className="locationInputAddress" />
+                        <input className="locationInputAddress" type="text" onChange={ (e) => updateAddress(e.target.value)} value={this.props.address}/>
                     </div>
                     <div className="cityStateDiv">
                         <div className="cityDiv">
                             <h4 className="city">City</h4>
-                            <input className="locationInput"/>
+                            <input className="locationInput" type="text" onChange={ (e) => updateCity(e.target.value)} value={this.props.city}/>
                         </div>
                         <div className="stateDiv">
                             <h4 className="state">State</h4>
-                            <input className="locationInput"/>
+                            <input className="locationInput" type="text" onChange={ (e) => updateState(e.target.value)} value={this.props.state}/>
                         </div>
                     </div>
                     <div className="zipDiv">
                         <h4 className="zipCode">Zip Code</h4>
-                        <input className="locationInput"/>
+                        <input className="locationInput" type="text" onChange={ (e) => updateZip(e.target.value)} value={this.props.zip}/>
                     </div>
                     <div className="backAndForthButtons">
                         <Link to="/wizard/1"><button className="stepButtons">Previous Step</button></Link>
@@ -50,3 +53,15 @@ export default class SecondView extends Component {
         )
     }
 }
+
+function mapStateToProps(state) {
+    const { address, city, states, zip } = state;
+
+    return {
+        address,
+        city,
+        states,
+        zip
+    }
+}
+export default connect(mapStateToProps, { updateAddress, updateCity, updateState, updateZip})(SecondView);

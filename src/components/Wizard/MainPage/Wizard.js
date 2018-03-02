@@ -3,7 +3,7 @@ import NavBar from '../../NavBar/NavBar';
 import './Wizard.css';
 
 
-export default function Wizard (props) {
+export default function Wizard ({children}) {
 
         return (
             <div className="wizard">
@@ -15,7 +15,7 @@ export default function Wizard (props) {
                             <button className="cancelListing">Cancel</button>
                         </div>
 
-                            {props.children}
+                            {children}
 
                     </div>
                 </div>

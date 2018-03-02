@@ -27,7 +27,11 @@
 .address,
 .zipCode {
     margin-bottom: 5px;
-    margin-left: 20px;
+}
+
+.zipCode {
+    width: 100px;
+    margin-left: 10px;
 }
 
 .locationInput {
@@ -58,4 +62,9 @@
     border: none;
     border-radius: 2px;
     color: white;
+}
+
+.zipDiv {
+    display: flex;
+    flex-direction: column;
 }

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateLoanAmount, updateMortgage } from '../../../ducks/reducer';
 import './FourthView.css';
 
-export default class FourthView extends Component {
+class FourthView extends Component {
     constructor() {
         super();
         this.state = {
@@ -11,6 +13,7 @@ export default class FourthView extends Component {
     }
     render() {
         let styles = { display: this.state.showStep === true ? 'none' : 'flex' }
+        const { updateLoanAmount, updateMortgage } = this.props;
         return (
             <div className="firstView">
                 <h4>Step 4</h4>
@@ -25,11 +28,11 @@ export default class FourthView extends Component {
                 {/* ALL CLASSES INSIDE THIS DIV CAN BE FOUND on ThirdView.css  */}
                     <div>
                         <h4 className="imageURL">Loan Amount</h4>
-                        <input className="imageInput" />
+                        <input className="imageInput" onChange={ (e) => updateLoanAmount(e.target.value)} value={this.props.loan}/>
                     </div>
                     <div>
                         <h4 className="imageURL">Mortgage</h4>
-                        <input className="imageInput"/>
+                        <input className="imageInput" onChange={ (e) => updateMortgage(e.target.value)} value={this.props.mortgage}/>
                     </div>
                     <div className="backAndForthButtons">
                         <Link to="/wizard/3"><button className="stepButtons">Previous Step</button></Link>
@@ -40,3 +43,14 @@ export default class FourthView extends Component {
         )
     }
 }
+
+
+function mapStateToProps(state){
+    const { loan, mortgage } = state;
+
+    return {
+        loan,
+        mortgage
+    }
+}
+export default connect(mapStateToProps, {updateLoanAmount, updateMortgage })(FourthView);

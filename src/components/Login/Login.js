@@ -1,27 +1,23 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { userId } from '../../ducks/reducer';
 import './Login.css';
 
 
-export default class Login extends Component {
+class Login extends Component {
     constructor(){
         super();
         this.state = {
             usernameInput: '',
             passwordInput: '',
-            identification: ''
+            identification: 0
         }
         this.userChange = this.userChange.bind(this);
         this.passChange = this.passChange.bind(this);
-    }
-
-    componentDidMount() {
-        axios.get('/api/getid').then(res => {
-            this.setState({
-                identification: res.data
-            })
-        })
+        this.registerClick = this.registerClick.bind(this);
+        this.login = this.login.bind(this);
     }
 
 
@@ -37,10 +33,38 @@ export default class Login extends Component {
         })
     }
 
+    registerClick(){
+        let user = {
+            id: this.state.identification,
+            username: this.state.usernameInput,
+            password: this.state.passwordInput
+        }
+        axios.get('/api/getid').then(res => {
+            console.log(res)
+            this.setState({
+                identification: res.data.max + 1
+            })
+            axios.post(`/api/auth/register`, user).then(res => {
+                this.props.history.push('/dashboard');
+            })
+        });
+    }
+
+    login(){
+        let username = this.state.usernameInput;
+        console.log(username)
+        axios.get(`/api/auth/login/${username}`).then(res => {
+            this.setState({identification: res.data.userId})
+            this.props.userId(this.state.identification);
+            this.props.history.push('/dashboard');
+        })
+    }
+
 
 
     render() {
-        console.log(this.state.identification);
+        const { userId } = this.props;
+        console.log(this.props.userId);
         return (
             <div className="login">
                 <div className="centerDiv">
@@ -55,11 +79,21 @@ export default class Login extends Component {
                         <input className="bottomInput" onChange={ e => this.passChange(e.target.value)}/>
                     </div>
                     <div className="buttonDiv">
-                        <button className="loginButton">Login</button>
-                        <Link to="/dashboard" className="registerButton"><button className="registerButton">Register</button></Link>
+                        <button className="loginButton" onClick={ () => this.login()}>Login</button>
+                        <Link to="/dashboard" className="registerButton"><button className="registerButton" onClick={ () => this.registerClick()}>Register</button></Link>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+
+function mapStateToProps(state){
+    const { id } = state;
+
+    return {
+        id
+    }
+}
+export default connect(mapStateToProps, {userId})(Login);

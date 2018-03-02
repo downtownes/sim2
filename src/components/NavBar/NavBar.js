@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './NavBar.css';
 import something from '../../'
 
 export default class NavBar extends Component {
+    constructor(){
+        super();
+
+        this.logout = this.logout.bind(this);
+    }
+    
+    logout(){
+        axios.post('/api/auth/logout');
+    }
     render() {
         return (
             <div className="navbar">
@@ -14,7 +24,7 @@ export default class NavBar extends Component {
                         <p className="dashboardTitleHouser">Houser</p>
                         <p className="dashboardTitleDashboard">Dashboard</p>
                     </div>
-                    <Link className="logout" to="/"><p>Logout</p></Link>
+                    <Link className="logout" to="/" onClick={ () => this.logout()}><p>Logout</p></Link>
                 </div>
             </div>
         )

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     background-color: #AFD4C0;
+    height: 100vh;
 }
 
 .centerDivRegister {
@@ -65,9 +66,79 @@
 }
 
 .listingsDiv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.homeListingTitleDiv {
+    width: 100%;
+    display: flex;
+    justify-content: initial;
 }
 
 .homeListingsTitle {
     margin-left: 50px;
+    float: left !important;
+}
+
+.propertyDiv {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    flex-direction: row;
+    background-color: lightgrey;
+    margin-bottom: 20px;
+}
+
+.dashboardPropertyImage {
+    height: 160px;
+    width: 20%;
+}
+
+.dashboardPropertyImageImage {
+    height: 160px;
+    width: 100%;
+}
+
+.majorityPropInfo {
+    width: 35%;
+    height: 95%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-left: 5px;
+    margin-top: 4px;
+}
+
+.listOfProperties {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.propNameAndDesc {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-right: 5px;
+}
+
+.infoDivider {
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.deleteButtonDiv {
+    margin-left: 2px;
+}
+
+.deleteButton {
+    border: none;
+    background: inherit;
+    font-weight: 600;
 }

@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { updateUrl } from '../../../ducks/reducer';
 import './ThirdView.css';
 
 
-export default class ThirdView extends Component {
+class ThirdView extends Component {
     constructor() {
         super();
         this.state = {
@@ -12,6 +14,8 @@ export default class ThirdView extends Component {
     }
     render() {
         let styles = { display: this.state.showStep === true ? 'none' : 'flex' }
+        const { updateUrl } = this.props;
+        console.log(this.props)
         return (
             <div className="firstView">
                 <h4>Step 3</h4>
@@ -24,11 +28,12 @@ export default class ThirdView extends Component {
                 </div>
                 <div className="thirdViewMainContainer">
                     <div className="imagePreviewContainer">
-                        <img className="imagePreview" alt="Preview" />
+                        <img className="imagePreview" alt="Preview" src={this.props.url}/>
+                        {console.log(this.props.url)}
                     </div>
                     <div className="imageURLDiv">
                         <h4 className="imageURL">Image URL</h4>
-                        <input className="imageInput" />
+                        <input className="imageInput" type="text" onChange={ (e) => updateUrl(e.target.value)} value={this.props.url}/>
                     </div>
                     <div className="backAndForthButtons">
                         <Link to="/wizard/2"><button className="stepButtons">Previous Step</button></Link>
@@ -39,3 +44,14 @@ export default class ThirdView extends Component {
         )
     }
 }
+
+
+
+function mapStateToProps(state){
+    const { url } = state;
+
+    return {
+        url
+    }
+}
+export default connect(mapStateToProps, { updateUrl })(ThirdView);

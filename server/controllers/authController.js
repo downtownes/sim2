@@ -4,20 +4,28 @@ module.exports = {
     login: (req, res, next) => {
         const db = req.app.get('db');
 
-
+        db.get_user(req.params.id).then(response => {
+            let user = response[0]
+            const { session } = req;
+            if(user.username){
+                session.user.userId = user.userid;
+                session.user.username = user.username
+                res.status(200).send(session.user)
+            }else{
+                next();
+            }
+        })
     },
 
     register: (req, res, next) => {
         const db = req.app.get('db');
 
-        db.registerUser([req.body.username, req.body.password]).then(user => {
-            const { username, password } = req.body;
+        db.registerUser([req.body.username, req.body.password, req.body.id]).then(user => {
+            const { username, password, id } = req.body;
             const { session } = req;
-            let id = '';
-            console.log(session.user);
 
+            session.user.userId = id;
             session.user.username = username;
-            // console.log(id.userid)
             res.status(200).send(session.user);
         })
     },
@@ -25,8 +33,15 @@ module.exports = {
     getIdentification: (req, res, next) => {
         const db = req.app.get('db');
         
-        db.get_id(req.params.id).then(identification => {
-            res.status(200).send(identification);
-        })
+        db.get_id().then(identification => {
+
+            res.status(200).send(identification[0])
+        }).catch(err => console.log(err))
     },
-}
+
+    logout: (req, res, next) => {
+        const { session } = req;
+        req.session.destroy();
+        res.status(200).send(session.user);
+    }
+} 

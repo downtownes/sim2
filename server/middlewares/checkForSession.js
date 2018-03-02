@@ -3,7 +3,7 @@ module.exports = function(req, res, next){
 
     if(!session.user){
         session.user = {
-            userId: '',
+            userId: 0,
             username: ''
         }
     }
