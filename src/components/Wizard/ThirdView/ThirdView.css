@@ -13,6 +13,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    max-height: 80%;
+}
+
+.imagePreview {
+    width: 552px;
+    height: 334px;
 }
 
 .imageInput {
@@ -25,4 +32,5 @@
 .imageURL {
     margin-bottom: 5px;
     margin-left: 20px;
+    font-family: 'Open Sans', sans-serif;
 }

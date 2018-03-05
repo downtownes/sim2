@@ -16,7 +16,7 @@ class SecondView extends Component {
         let styles = { display: this.state.showStep === true ? 'none' : 'flex' }
         return (
             <div className="firstView">
-            
+
                 <h4>Step 2</h4>
                 <div className="stepIconDiv">
                     <div className="lightCircle"><div className="checkCircle1"><p hidden={false}>✓</p></div></div>
@@ -28,21 +28,21 @@ class SecondView extends Component {
                 <div className="secondViewMidContainer">
                     <div className="addressDiv">
                         <h4 className="address">Address</h4>
-                        <input className="locationInputAddress" type="text" onChange={ (e) => updateAddress(e.target.value)} value={this.props.address}/>
+                        <input className="locationInputAddress" type="text" onChange={(e) => updateAddress(e.target.value)} value={this.props.address} />
                     </div>
                     <div className="cityStateDiv">
                         <div className="cityDiv">
                             <h4 className="city">City</h4>
-                            <input className="locationInput" type="text" onChange={ (e) => updateCity(e.target.value)} value={this.props.city}/>
+                            <input className="locationInput" type="text" onChange={(e) => updateCity(e.target.value)} value={this.props.city} />
                         </div>
                         <div className="stateDiv">
                             <h4 className="state">State</h4>
-                            <input className="locationInput" type="text" onChange={ (e) => updateState(e.target.value)} value={this.props.state}/>
+                            <input className="locationInput" type="text" onChange={(e) => updateState(e.target.value)} value={this.props.state} />
                         </div>
                     </div>
                     <div className="zipDiv">
                         <h4 className="zipCode">Zip Code</h4>
-                        <input className="locationInput" type="text" onChange={ (e) => updateZip(e.target.value)} value={this.props.zip}/>
+                        <input className="locationInput" type="text" onChange={(e) => updateZip(e.target.value)} value={this.props.zip} />
                     </div>
                     <div className="backAndForthButtons">
                         <Link to="/wizard/1"><button className="stepButtons">Previous Step</button></Link>
@@ -64,4 +64,4 @@ function mapStateToProps(state) {
         zip
     }
 }
-export default connect(mapStateToProps, { updateAddress, updateCity, updateState, updateZip})(SecondView);
+export default connect(mapStateToProps, { updateAddress, updateCity, updateState, updateZip })(SecondView);

@@ -27,9 +27,24 @@
 
 .logout {
     margin-right: 20px;
+    text-decoration: none;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
 }
 
 .dashboardTitleHouser, 
 .dashboardTitleDashboard {
     margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: white;
+    font-size: 32px;
+}
+
+.dashboardTitleDashboard {
+    font-weight: 300;
+}
+
+.dashboardTitleHouser {
+    font-weight: 600;
 }

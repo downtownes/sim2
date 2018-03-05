@@ -29,6 +29,16 @@ class Dashboard extends Component {
         })
     }
 
+    componentWillMount() {
+        console.log('componentDidMount')
+        axios.get(`/api/properties?propid=${this.props.id}&desiredRent=0`).then(res => {
+            console.log(res.data)
+            this.setState({
+                properties: res.data
+            })
+        })
+    }
+
     filterRent(e) {
         this.setState({
             desiredRent: e
@@ -87,7 +97,7 @@ class Dashboard extends Component {
             <div className="registerComponent">
                 <NavBar />
                 <div className="register">
-                    <div className="centerDivRegister">
+                    <div className="centerDivRegisterPrimary">
                         <div className="addNewPropertyDiv">
                             <Link to="/wizard/1"><button className="addNewPropertyButton">Add New Property</button></Link>
                             <div className="filterDiv">

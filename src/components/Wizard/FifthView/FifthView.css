@@ -1,6 +1,7 @@
 .recommendRentDiv {
     display: flex;
     justify-content: center;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .completeButton {
@@ -9,4 +10,7 @@
     border: none;
     border-radius: 2px;
     background-color: #8AEA92;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
 }

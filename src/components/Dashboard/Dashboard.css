@@ -1,8 +1,15 @@
 .register {
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     background-color: #AFD4C0;
-    height: 100vh;
+}
+
+.centerDivRegisterPrimary {
+    width: 46em;
+    height: 100%;
+    background: linear-gradient(to bottom, #e2f3ea, #ffffff);
 }
 
 .centerDivRegister {
@@ -25,6 +32,9 @@
     height: 50px;
     border: none;
     background-color: #8AEA92;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
 }
 
 .filterDiv {
@@ -47,6 +57,9 @@
     border: none;
     background-color: #8AEA92;
     margin-left: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .dashboardResetButton {
@@ -56,6 +69,9 @@
     background-color: #3B5249;
     margin-left: 10px;
     color: white;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
 }
 
 .dividerLine {
@@ -67,6 +83,7 @@
 
 .listingsDiv {
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -113,6 +130,7 @@
 
 .listOfProperties {
     width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;

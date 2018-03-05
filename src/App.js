@@ -5,8 +5,15 @@ import './App.css';
 
 
 class App extends Component {
-
+  constructor(){
+    super();
+    this.onClick = this.onClick.bind(this);
+  }
   
+
+  onClick(){
+    this.props.history.push('/dasboard');
+  }
 
   render() {
     return (

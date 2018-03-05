@@ -49,7 +49,7 @@ class FifthView extends Component {
                 <div className="fourthViewMainContainer">
                     {/* The h5 tag needs a calculated price. Refer the Step 5 on the ReadMe */}
                     <div className="recommendRentDiv">
-                        <h5>Recommend Rent</h5>
+                        <h5>{`Recommend Rent $${Math.floor(this.props.mortgage * 0.25 + this.props.mortgage)}`}</h5>
                     </div>
                     <div>
                         <h4 className="imageURL">Desired Rent</h4>
